@@ -1,0 +1,27 @@
+{
+  "name": "redblack-tree",
+  "version": "0.0.1",
+  "homepage": "https://github.com/voxlol/redblack-tree",
+  "authors": [
+    "abhigulati@gmail.com"
+  ],
+  "description": "A javsascript implementation and visualization of a red-black tree data structure.",
+  "main": "rbtree.js",
+  "keywords": [
+    "redblack",
+    "tree",
+    "data",
+    "structure",
+    "red-black",
+    "tree",
+    "red",
+    "black",
+    "tree",
+    "trees"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "underscore": "~1.8.3",
+    "d3": "~3.5.6"
+  }
+}
