@@ -1,0 +1,5 @@
+1. toJSON helper function to give the data to d3 in a tree-friendly format
+2. RBTREE - insert, delete, find
+3. Need to write tests for the definition of the red-black tree properties
+
+* Should be able to step through all the different steps of the insertion etc
