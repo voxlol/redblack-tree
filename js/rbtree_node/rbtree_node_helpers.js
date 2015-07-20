@@ -62,6 +62,7 @@ Node.prototype.value = function(newValue){
   }else{
     if(typeof newValue !== 'number') error("Please enter an integer value for value()");
     this._value = newValue;
+    return this;
   }
 }
 
@@ -81,7 +82,7 @@ Node.prototype.leftChild = function(node){
   if(node === undefined) return this._left;
   else if(node instanceof Node){
     this._left = node;
-    return this._left;
+    return this;
   } 
   else error("Invalid input type. Must be instanceof Node-class");
 }
@@ -91,7 +92,7 @@ Node.prototype.rightChild = function(node){
   if(node === undefined) return this._right;
   else if(node instanceof Node){
     this._right = node;
-    return this._right;
+    return this;
   } 
   else error("Invalid input type. Must be instanceof Node-class");
 }
@@ -101,7 +102,7 @@ Node.prototype.parent = function(node){
   if(node === undefined) return this._parent;
   else if(node instanceof Node){
     this._parent = node;
-    return this._parent;
+    return this;
   } 
   else error("Invalid input type. Must be instanceof Node-class");
 }
