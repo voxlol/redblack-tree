@@ -3,8 +3,16 @@ function error(str){
 }
 
 
-// Basic utility functions
+// Create nil node
+var createNil = function(parent){
+  var returnNode = new Node(null, 'b', null, null, parent);
+  return returnNode;
+}
 
+
+
+
+// Basic utility functions
 Node.prototype.isLeaf = function(){
   return this._left === null && this._right === null && this._value === null;
 }

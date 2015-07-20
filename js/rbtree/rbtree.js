@@ -14,8 +14,8 @@ RedBlackTree.prototype.insert = function(value){
     this.root.insert(insertNode);
   } else {
     insertNode.color('r');
-    insertNode.leftChild(new Node());
-    insertNode.rightChild(new Node());
+    insertNode.leftChild(createNil(insertNode));
+    insertNode.rightChild(createNil(insertNode));
     this.setRoot(insertNode);
   }
 }
