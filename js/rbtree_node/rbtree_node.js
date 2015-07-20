@@ -1,35 +1,43 @@
 // NODE CLASS
 
 var Node = function(value, startColor, leftNode, rightNode, parent){
-  this.value = value || null;
-  this.color = startColor || color.black;
-  this.left = leftNode || null;
-  this.right = rightNode || null;
-  this.parent = parent || null;
+  this._value = value || null;
+  this._left = leftNode || null;
+  this._right = rightNode || null;
+  this._parent = parent || null;
+
+
+  // This just lets us be able to set the startColor using either numbers or strings
+  if(startColor === 0 || startColor === 1)
+    this._color = startColor;
+  else if(typeof startColor === 'string'){
+    if(this.color(startColor) === -1) this._color = color.black;
+  }else
+    this._color = color.black;
 }
 
 
 // Basic Insertion
 Node.prototype.insert = function(insertNode){
-  if(insertNode.value > this.value) {
-    if(this.right && this.right.value) {
-      insertNode.parent = this.right;
-      this.right.insert(insertNode);
+  if(insertNode.value() > this.value()) {        // insertNode is greater in value
+    if(this.rightChild() && this.rightChild().value()) {
+      insertNode.parent(this.rightChild());
+      this.rightChild().insert(insertNode);
     } else {
-      insertNode.parent = this;
-      this.right = insertNode;
-      insertNode.left = new Node();
-      insertNode.right = new Node();
+      insertNode.parent(this);
+      this.rightChild(insertNode);
+      insertNode.leftChild(new Node());
+      insertNode.rightChild(new Node());
     }
-  } else if(insertNode.value < this.value) {
-    if(this.left && this.left.value) {
-      insertNode.parent = this.left;
-      this.left.insert(insertNode);
+  } else if(insertNode.value() < this.value()) { // insertNode is lower
+    if(this.leftChild() && this.leftChild().value()) {
+      insertNode.parent(this.leftChild());
+      this.leftChild().insert(insertNode);
     } else {
-      insertNode.parent = this;
-      this.left = insertNode;
-      insertNode.left = new Node();
-      insertNode.right = new Node();
+      insertNode.parent(this);
+      this.leftChild(insertNode);
+      insertNode.leftChild(new Node());
+      insertNode.rightChild(new Node());
     }
   } else {
     console.log("invalid value provided");

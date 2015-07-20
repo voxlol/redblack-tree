@@ -8,15 +8,15 @@ var RedBlackTree = function(){
 }
 
 RedBlackTree.prototype.insert = function(value){
-  var insertNode = new Node(value, color.red);
+  var insertNode = new Node(value, 'r');
 
-  if(this.root) {
+  if(this.root instanceof Node) {
     this.root.insert(insertNode);
   } else {
-    insertNode.color = color.black;
-    insertNode.left = new Node();
-    insertNode.right = new Node();
-    this.root = insertNode;
+    insertNode.color('r');
+    insertNode.leftChild(new Node());
+    insertNode.rightChild(new Node());
+    this.setRoot(insertNode);
   }
 }
 
