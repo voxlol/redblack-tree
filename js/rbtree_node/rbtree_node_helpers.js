@@ -1,7 +1,7 @@
 // General utility
 function error(str){ console.log("ERROR : ", str) };
-exists = function (x){ return x != null };
-truthy = function (x){ return x!== false && exist(x) };
+function exists (x){ return x != null };
+function truthy (x){ return x!== false && exists(x) };
 
 
 // Creates nil node and links it to the provided parent
