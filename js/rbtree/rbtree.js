@@ -4,7 +4,7 @@ Object.freeze(color); // makes the colors immutable
 // REDBLACK TREE CLASS
 
 var RedBlackTree = function(){
-  this.root;
+  this.root = null;
 }
 
 RedBlackTree.prototype.insert = function(value){
@@ -19,3 +19,4 @@ RedBlackTree.prototype.insert = function(value){
     this.root = insertNode;
   }
 }
+
