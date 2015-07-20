@@ -3,7 +3,7 @@ function error(str){
 }
 
 
-// Create nil node
+// Creates nil node and links it to the provided parent
 var createNil = function(parent){
   var returnNode = new Node(null, 'b', null, null, parent);
   return returnNode;
@@ -25,6 +25,10 @@ Node.prototype.toggleColor = function(){
   this._color = this._color === 0 ? 1 : 0;  // toggle the color
 }
 
+// Example : this.color('r') sets to red.
+//           this.color('red') sets to red
+//           this.color(0) sets to red
+// this.color() will return the current color
 Node.prototype.color = function(colorStr){
   // grab color and leave if no colorStr provided
   if(colorStr === undefined) return this._color === 0 ? "red" : "black";
@@ -43,6 +47,7 @@ Node.prototype.color = function(colorStr){
   }
 }
 
+// Returns the current color. --- Don't think its necessary to set values
 Node.prototype.value = function(){
   return this._value;
 }
@@ -57,6 +62,8 @@ Node.prototype.value = function(){
 
 // Getter/setters of pointers to other nodes
 // Left Child
+// Example - this.leftChild() returns the current left child
+//           this.leftChild(insertNode) will set the this node's _left to the insertNode
 Node.prototype.leftChild = function(node){
   if(node === undefined) return this._left;
   else if(node instanceof Node) this._left = node;
@@ -77,14 +84,17 @@ Node.prototype.parent = function(node){
   else error("Invalid input type. Must be instanceof Node-class");
 }
 
-// Extended Family
+// Extended Family --------
+// Grandparent just fetches the grandparent node
+// Returns null if it can't find a grandparent
 Node.prototype.grandParent = function(){
   return this.parent() ? this.parent().parent() : null;
 } // Don't have a setter for the grand parent, might change this
 
+// Uncle will fetch the uncle if there is one, or return null
 Node.prototype.uncle = function(){ // Don't have a setter for the uncle either atm.
   if(this.grandParent() === null)
-    return;
+    return null;
   else{
     // If there is a grandparent, then check the grandparents 2 children
       // the children needs to be different from the parent (hence an uncle)
@@ -94,6 +104,8 @@ Node.prototype.uncle = function(){ // Don't have a setter for the uncle either a
       return grandParent.leftChild();
     else if(grandParent.rightChild() !== parent && grandParent.rightChild() !== null)
       return grandParent.rightChild();
+    else
+      return null;
   }
 }
 

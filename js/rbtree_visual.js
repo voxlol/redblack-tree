@@ -1,8 +1,8 @@
 var visualTree = new RedBlackTree();
-debugger;
 visualTree.insert(10);
 visualTree.insert(15);
 visualTree.insert(5);
+visualTree.insert(25);
 
 
 

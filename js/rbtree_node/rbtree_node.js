@@ -21,7 +21,7 @@ var Node = function(value, startColor, leftNode, rightNode, parent){
 // Basic Insertion
 Node.prototype.insert = function(insertNode){
   if(insertNode.value() > this.value()) {        // insertNode is greater in value
-    if(this.rightChild() && this.rightChild().value()) {
+    if(this.rightChild() && this.rightChild().value()) {    // exists & not nil
       insertNode.parent(this.rightChild());
       this.rightChild().insert(insertNode);
     } else {
@@ -31,7 +31,7 @@ Node.prototype.insert = function(insertNode){
       insertNode.rightChild(createNil(insertNode));
     }
   } else if(insertNode.value() < this.value()) { // insertNode is lower
-    if(this.leftChild() && this.leftChild().value()) {
+    if(this.leftChild() && this.leftChild().value()) {   // exists & not nil
       insertNode.parent(this.leftChild());
       this.leftChild().insert(insertNode);
     } else {
