@@ -116,17 +116,28 @@ Node.prototype.uncle = function(){ // Don't have a setter for the uncle either a
 }
 
 // Existence helper functions
-// Node.prototype.hasLeftChild = function(){
-//   return this.leftChild() ===
-// }
+Node.prototype.hasLeftChild = function(){
+  return exists(this.leftChild());
+}
 
+Node.prototype.hasRightChild = function(){
+  return exists(this.RightChild());
+}
 
+Node.prototype.hasParent = function(){
+  return exists(this.parent());
+}
+
+Node.prototype.hasGrandParent = function(){
+  return exists(this.grandParent());
+}
+
+Node.prototype.hasUncle = function(){
+  return exists(this.hasUncle());
+}
 
 
 // Rewiring Utility functions
-
-
-
 
 
 // toJSON for D3-tree friendly format
