@@ -24,6 +24,7 @@ Node.prototype.isRoot = function(){
 
 Node.prototype.toggleColor = function(){
   this._color = this._color === 0 ? 1 : 0;  // toggle the color
+  return this;  
 }
 
 // Example : this.color('r') sets to red.
@@ -43,8 +44,14 @@ Node.prototype.color = function(colorStr){
     error("Please enter a valid color");
     return -1; // invalid color return code
   }else{
-    if(blackStr.indexOf(colorStr) >= 0) this._color = 1;
-    else if(redStr.indexOf(colorStr) >= 0) this._color = 0;
+    if(blackStr.indexOf(colorStr) >= 0){
+      this._color = 1;
+      return this;
+    }
+    else if(redStr.indexOf(colorStr) >= 0){
+      this._color = 0;
+      return this;
+    } 
   }
 }
 
@@ -72,21 +79,30 @@ Node.prototype.value = function(newValue){
 //           this.leftChild(insertNode) will set the this node's _left to the insertNode
 Node.prototype.leftChild = function(node){
   if(node === undefined) return this._left;
-  else if(node instanceof Node) this._left = node;
+  else if(node instanceof Node){
+    this._left = node;
+    return this._left;
+  } 
   else error("Invalid input type. Must be instanceof Node-class");
 }
 
 // Right Child
 Node.prototype.rightChild = function(node){
   if(node === undefined) return this._right;
-  else if(node instanceof Node) this._right = node;
+  else if(node instanceof Node){
+    this._right = node;
+    return this._right;
+  } 
   else error("Invalid input type. Must be instanceof Node-class");
 }
 
 // Parent
 Node.prototype.parent = function(node){
   if(node === undefined) return this._parent;
-  else if(node instanceof Node) this._parent = node;
+  else if(node instanceof Node){
+    this._parent = node;
+    return this._parent;
+  } 
   else error("Invalid input type. Must be instanceof Node-class");
 }
 
