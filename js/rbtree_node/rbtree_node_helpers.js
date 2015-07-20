@@ -11,8 +11,7 @@ Node.prototype.toggleColor = function(){
 }
 
 Node.prototype.getColor = function(){
-  if(this.color === 0) return "red"
-  else return "black";
+  return this.color === 0 ? "red" : "black"
 }
 
 Node.prototype.getValue = function(){
