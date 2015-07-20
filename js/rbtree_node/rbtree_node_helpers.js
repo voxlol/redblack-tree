@@ -1,6 +1,7 @@
-function error(str){
-  console.log("ERROR : ", str);
-}
+// General utility
+function error(str){ console.log("ERROR : ", str) };
+exists = function (x){ return x != null };
+truthy = function (x){ return x!== false && exist(x) };
 
 
 // Creates nil node and links it to the provided parent
@@ -48,8 +49,13 @@ Node.prototype.color = function(colorStr){
 }
 
 // Returns the current color. --- Don't think its necessary to set values
-Node.prototype.value = function(){
-  return this._value;
+Node.prototype.value = function(newValue){
+  if(newValue === undefined){
+    return this._value;
+  }else{
+    if(typeof newValue !== 'number') error("Please enter an integer value for value()");
+    this._value = newValue;
+  }
 }
 
 
@@ -109,6 +115,15 @@ Node.prototype.uncle = function(){ // Don't have a setter for the uncle either a
   }
 }
 
+// Existence helper functions
+// Node.prototype.hasLeftChild = function(){
+//   return this.leftChild() ===
+// }
+
+
+
+
+// Rewiring Utility functions
 
 
 

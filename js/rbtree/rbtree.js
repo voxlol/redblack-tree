@@ -1,6 +1,3 @@
-var color = { red : 0, black : 1}
-Object.freeze(color); // makes the colors immutable
-
 // REDBLACK TREE CLASS
 
 var RedBlackTree = function(){
