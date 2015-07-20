@@ -1,23 +1,27 @@
-var red = 0, black = 1;
+var color = {
+  red : 0,
+  black : 1
+}
+Object.freeze(color); // makes the colors immutable
 
 var RedBlackTree = function(){
   this.root;
 }
 
 RedBlackTree.prototype.insert = function(value){
-  var insertNode = new Node(value, red);
+  var insertNode = new Node(value, color.red);
 
   if(this.root) {
     this.root.insert(insertNode);
   } else {
-    insertNode.color = black;
+    insertNode.color = color.black;
     this.root = insertNode;
   }
 }
 
 var Node = function(value, color, leftNode, rightNode, parent){
   this.value = value || null;
-  this.color = color || black;
+  this.color = color || color.black;
   this.left = leftNode || null;
   this.right = rightNode || null;
   this.parent = parent || null;
