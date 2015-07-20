@@ -4,5 +4,5 @@ var svg = d3.select('#canvas').append("svg")
 
 // 
 var tree = d3.layout.tree().size([500,500]);
-var tree_nodes = tree.nodes();
+//var tree_nodes = tree.nodes();
 // var links = tree.links(array_of_nodes);

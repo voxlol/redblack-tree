@@ -15,13 +15,15 @@ RedBlackTree.prototype.insert = function(value){
     this.root.insert(insertNode);
   } else {
     insertNode.color = color.black;
+    insertNode.left = new Node();
+    insertNode.right = new Node();
     this.root = insertNode;
   }
 }
 
-var Node = function(value, color, leftNode, rightNode, parent){
+var Node = function(value, startColor, leftNode, rightNode, parent){
   this.value = value || null;
-  this.color = color || color.black;
+  this.color = startColor || color.black;
   this.left = leftNode || null;
   this.right = rightNode || null;
   this.parent = parent || null;
