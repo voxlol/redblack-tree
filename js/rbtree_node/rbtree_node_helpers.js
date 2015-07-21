@@ -82,6 +82,7 @@ Node.prototype.leftChild = function(node){
   if(node === undefined) return this._left;
   else if(node instanceof Node){
     this._left = node;
+    node.parent(this);
     return this;
   } 
   else error("Invalid input type. Must be instanceof Node-class");
@@ -92,6 +93,7 @@ Node.prototype.rightChild = function(node){
   if(node === undefined) return this._right;
   else if(node instanceof Node){
     this._right = node;
+    node.parent(this);
     return this;
   } 
   else error("Invalid input type. Must be instanceof Node-class");
