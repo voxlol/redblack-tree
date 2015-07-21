@@ -58,6 +58,12 @@ describe('RBNode get/set helpers', function(){
       expect(tree.root.leftChild(insertNode).leftChild()).toEqual(insertNode);
       expect(tree.root.leftChild().value()).toEqual(7);
     });
+
+    it('should create a link back to the parent', function(){
+      tree.insert(10);
+      var insertNode = new Node(7, 'r');
+      expect(tree.root.leftChild(insertNode).leftChild().parent()).toEqual(tree.root);
+    });
   });
 
   describe('rightChild', function(){
@@ -74,6 +80,12 @@ describe('RBNode get/set helpers', function(){
       var insertNode = new Node(15, 'r');
       expect(tree.root.rightChild(insertNode).rightChild()).toEqual(insertNode);
       expect(tree.root.rightChild().value()).toEqual(15);
+    });
+
+    it('should create a link back to the parent', function(){
+      tree.insert(10);
+      var insertNode = new Node(12, 'r');
+      expect(tree.root.rightChild(insertNode).rightChild().parent()).toEqual(tree.root);
     });
   });
 })
